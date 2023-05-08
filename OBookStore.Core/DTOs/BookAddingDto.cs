@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OBookStore.Core.DTOs
 {
-    internal class BookAddingDto 
+    public class BookAddingDto 
     {
        public string Title { get; set; }
        public string Description { get; set; }

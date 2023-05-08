@@ -1,4 +1,7 @@
-﻿using OBookStore.Core.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using OBookStore.Core.Repositories;
+using OBookStore.Repository.DbContexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,49 +13,59 @@ namespace OBookStore.Repository.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        public Task AddAsync(TEntity entity)
+        protected readonly BookStoreAppDbContext _dbContext;
+        private readonly DbSet<TEntity> _dbSet;
+
+        public GenericRepository(BookStoreAppDbContext dbContext )
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
+            _dbSet = dbContext.Set<TEntity>();
         }
 
-        public Task AddRangeAsync(IEnumerable<TEntity> entities)
+        public async Task AddAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+             await _dbSet.AddAsync(entity);
         }
 
-        public Task<bool> AnyAsync(TEntity entity)
+        public async Task AddRangeAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddRangeAsync(entities);
+        }
+
+
+        public async Task<bool> AnyAsync(Expression<Func<TEntity,bool>> expression)
+        {
+            return await _dbSet.AnyAsync(expression);
         }
 
         public IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return  _dbSet.AsNoTracking();
         }
 
-        public Task<TEntity> GetByIdAsync(Guid id)
+        public async Task<TEntity> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _dbSet.FindAsync(id);
         }
 
         public void Remove(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Remove(entity); 
         }
 
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            _dbSet.RemoveRange(entities);
         }
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Update(entity);
         }
 
-        public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> expression)
+        public  IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _dbSet.Where(expression);
         }
     }
 }

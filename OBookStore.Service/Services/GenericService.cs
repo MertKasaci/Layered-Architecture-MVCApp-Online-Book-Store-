@@ -1,4 +1,6 @@
-﻿using OBookStore.Core.Services;
+﻿using OBookStore.Core.Repositories;
+using OBookStore.Core.Services;
+using OBookStore.Core.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,49 +12,62 @@ namespace OBookStore.Service.Services
 {
     public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : class
     {
-        public Task AddAsync(TEntity entity)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IGenericRepository<TEntity> _repository;
+        public GenericService(IUnitOfWork unitOfWork , IGenericRepository<TEntity> repository)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
+            _repository = repository;
+        }
+        public async Task AddAsync(TEntity entity)
+        {
+            await _repository.AddAsync(entity);
+            await _unitOfWork.CommitAsync();
+            
         }
 
-        public Task AddRangeAsync(IEnumerable<TEntity> entities)
+        public async Task AddRangeAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            await _repository.AddRangeAsync(entities);
+            await _unitOfWork.CommitAsync();
         }
 
-        public Task<bool> AnyAsync(TEntity entity)
+        public Task<bool> AnyAsync(Expression<Func<TEntity, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _repository.AnyAsync(expression);
         }
 
         public IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
-        public Task<TEntity> GetByIdAsync(Guid id)
+        public async Task<TEntity> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _repository.GetByIdAsync(id);
         }
 
-        public void Remove(TEntity entity)
+        public async void Remove(TEntity entity)
         {
-            throw new NotImplementedException();
+            _repository.Remove(entity);
+            await _unitOfWork.CommitAsync();
         }
 
-        public void RemoveRange(IEnumerable<TEntity> entities)
+        public async void RemoveRange(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            _repository.RemoveRange(entities);
+            await _unitOfWork.CommitAsync();
         }
 
-        public void Update(TEntity entity)
+        public async void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _repository.Update(entity);
+            await _unitOfWork.CommitAsync();
         }
 
         public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _repository.Where(expression);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using OBookStore.Core.Repositories;
+﻿using OBookStore.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +6,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OBookStore.Repository.Repositories
+namespace OBookStore.Service.Services
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : class
     {
         public Task AddAsync(TEntity entity)
         {

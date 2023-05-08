@@ -5,8 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OBookStore.Core.Repositories;
+using OBookStore.Core.Services;
+using OBookStore.Core.UnitOfWorks;
 using OBookStore.Repository.DbContexts;
+using OBookStore.Repository.Repositories;
+using OBookStore.Repository.UnitOfWorks;
 using OBookStore.Service.Mapping;
+using OBookStore.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +35,9 @@ namespace OBookStore.WebMVC
         {
             services.AddControllersWithViews();
             services.AddAutoMapper(typeof(MapProfile));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddDbContext<BookStoreAppDbContext>(dbContext =>
             {

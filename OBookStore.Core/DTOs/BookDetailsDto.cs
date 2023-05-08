@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OBookStore.Core.DTOs
 {
-   public class BookDto
+   public class BookDetailsDto 
    {
         public string Title { get; set; }
         public string Description { get; set; }

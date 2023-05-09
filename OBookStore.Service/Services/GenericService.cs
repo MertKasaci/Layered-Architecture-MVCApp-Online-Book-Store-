@@ -47,19 +47,19 @@ namespace OBookStore.Service.Services
             return await _repository.GetByIdAsync(id);
         }
 
-        public async void Remove(TEntity entity)
+        public async Task Remove(TEntity entity)
         {
             _repository.Remove(entity);
-            await _unitOfWork.CommitAsync();
+           await _unitOfWork.CommitAsync();
         }
 
-        public async void RemoveRange(IEnumerable<TEntity> entities)
+        public async  Task RemoveRange(IEnumerable<TEntity> entities)
         {
             _repository.RemoveRange(entities);
-            await _unitOfWork.CommitAsync();
+             await _unitOfWork.CommitAsync();
         }
 
-        public async void Update(TEntity entity)
+        public async Task Update(TEntity entity)
         {
             _repository.Update(entity);
             await _unitOfWork.CommitAsync();

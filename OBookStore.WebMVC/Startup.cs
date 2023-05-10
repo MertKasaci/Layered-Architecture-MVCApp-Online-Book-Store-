@@ -38,6 +38,7 @@ namespace OBookStore.WebMVC
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IBookRepository, BookRepository>();
 
             services.AddDbContext<BookStoreAppDbContext>(dbContext =>
             {

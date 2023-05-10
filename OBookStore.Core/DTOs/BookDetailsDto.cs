@@ -14,6 +14,8 @@ namespace OBookStore.Core.DTOs
         public int NumberOfPages { get; set; }
         public int NumberOfEdition { get; set; }
         public int NumberOfStocks { get; set; }
+        public int NumberOfLikes { get; set; }
+        public int NumberOfDislikes { get; set; }
         public decimal Price { get; set; }
         public Guid CategoryId { get; set; }
         public Guid PublisherId { get; set; }

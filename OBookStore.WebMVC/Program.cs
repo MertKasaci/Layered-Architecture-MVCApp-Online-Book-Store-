@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OBookStore.Repository.DbContexts;
+using OBookStore.Repository.Seeds.DataGenerator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace OBookStore.WebMVC
     {
         public static void Main(string[] args)
         {
+          
             //Console.WriteLine(Assembly.GetAssembly(typeof(BookStoreAppDbContext)).GetName().Name);
             CreateHostBuilder(args).Build().Run();
         }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OBookStore.Repository.DbContexts;
 
 namespace OBookStore.Repository.Migrations
 {
     [DbContext(typeof(BookStoreAppDbContext))]
-    partial class BookStoreAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230510171347_mig_5")]
+    partial class mig_5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,70 +199,70 @@ namespace OBookStore.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 550, DateTimeKind.Local).AddTicks(4066),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(142),
                             Title = "Literature",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2749),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8719),
                             Title = "History",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2764),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8736),
                             Title = "Philosophy",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2766),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8738),
                             Title = "Science",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2767),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8739),
                             Title = "Engineering",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2769),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8740),
                             Title = "Software",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2770),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8741),
                             Title = "Kids",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2771),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8743),
                             Title = "Economy",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2772),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8744),
                             Title = "Sociology",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2773),
+                            CreatedDate = new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8745),
                             Title = "Art",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });

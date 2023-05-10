@@ -26,7 +26,7 @@ namespace OBookStore.Repository.Seeds.DataGenerator
                 .RuleFor(b => b.NumberOfPages, d => d.Random.Int(250, 1000))
                 .RuleFor(b => b.NumberOfSolds, d => d.Random.Int(1, 100))
                 .RuleFor(b => b.NumberOfStocks, d => d.Random.Int(10, 50))
-                .RuleFor(b => b.Price, d => d.Random.Decimal(18,2))
+                .RuleFor(b => b.Price, d => d.Commerce.Price(1).First())
                 .RuleFor(b => b.CategoryId, d => d.Random.Int(1, 10))
                 .RuleFor(b => b.PublisherId, d => d.Random.Int(1, 10));
 
@@ -45,7 +45,6 @@ namespace OBookStore.Repository.Seeds.DataGenerator
                 .RuleFor(p => p.Email, d => d.Internet.Email());
 
             return publisherDataGenerator.GenerateBetween(20, 20);
-            
         }
 
     }

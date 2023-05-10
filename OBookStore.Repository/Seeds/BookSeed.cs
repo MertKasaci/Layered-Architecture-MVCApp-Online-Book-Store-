@@ -24,8 +24,10 @@ namespace OBookStore.Repository.Seeds
 
         public void Configure(EntityTypeBuilder<Book> builder)
         {
-            IEnumerable<Book> enumBooks = _generator.bookDataGenerator();
-            builder.HasData(enumBooks);
+            
+
+            
+            builder.HasData(_generator.bookDataGenerator());
 
         
         }

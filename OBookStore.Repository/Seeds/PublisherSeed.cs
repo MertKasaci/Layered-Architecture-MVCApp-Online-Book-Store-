@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Bogus;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using OBookStore.Core.DataGenerator;
 using OBookStore.Core.Entities;
@@ -20,8 +21,10 @@ namespace OBookStore.Repository.Seeds
         }
         public void Configure(EntityTypeBuilder<Publisher> builder)
         {
-            IEnumerable<Publisher> enumPublisher = _generator.publisherDataGenerator();
-            builder.HasData(enumPublisher);
+            
+
+             
+            builder.HasData(_generator.publisherDataGenerator());
         }
     }
 }

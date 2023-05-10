@@ -13,7 +13,7 @@ namespace OBookStore.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.Property(p=>p.Title).HasMaxLength(50);
+            //builder.Property(p=>p.Title).HasMaxLength(50);
         }
     }
 }

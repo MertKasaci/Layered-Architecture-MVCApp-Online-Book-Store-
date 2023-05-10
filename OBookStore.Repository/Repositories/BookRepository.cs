@@ -27,7 +27,7 @@ namespace OBookStore.Repository.Repositories
 
         public IQueryable<Book> GetTopLikedBooks()
         {
-            return _dbContext.Books.OrderByDescending(book => book.NumberOfLikes).Take(12)
+            return _dbContext.Books.OrderByDescending(book => book.NumberOfLikes).Take(12);
         }
     }
 }

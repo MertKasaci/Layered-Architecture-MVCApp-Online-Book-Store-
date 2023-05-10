@@ -12,8 +12,8 @@ namespace OBookStore.Core.Entities
         public string Body { get; set; }
         public int NumberOfLikes { get; set; }
         public int NumberOfDislikes { get; set; }
-        public Guid UserId { get; set; }
-        public Guid BookId { get; set; }
+        public int UserId { get; set; }
+        public int BookId { get; set; }
         public User User { get; set; }
         public Book Book { get; set; }
 

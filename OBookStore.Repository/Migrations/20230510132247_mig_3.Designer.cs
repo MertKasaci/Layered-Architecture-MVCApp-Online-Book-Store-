@@ -10,8 +10,8 @@ using OBookStore.Repository.DbContexts;
 namespace OBookStore.Repository.Migrations
 {
     [DbContext(typeof(BookStoreAppDbContext))]
-    [Migration("20230507150211_mig_1")]
-    partial class mig_1
+    [Migration("20230510132247_mig_3")]
+    partial class mig_3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,11 +23,11 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("AuthorBook", b =>
                 {
-                    b.Property<Guid>("AuthorsId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("AuthorsId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("BooksId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("BooksId")
+                        .HasColumnType("int");
 
                     b.HasKey("AuthorsId", "BooksId");
 
@@ -38,11 +38,11 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("BookCart", b =>
                 {
-                    b.Property<Guid>("BooksId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("BooksId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("CartsId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("CartsId")
+                        .HasColumnType("int");
 
                     b.HasKey("BooksId", "CartsId");
 
@@ -53,11 +53,11 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("BookOrder", b =>
                 {
-                    b.Property<Guid>("BooksId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("BooksId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("OrdersId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("OrdersId")
+                        .HasColumnType("int");
 
                     b.HasKey("BooksId", "OrdersId");
 
@@ -68,9 +68,10 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("OBookStore.Core.Entities.Author", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -107,12 +108,13 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("OBookStore.Core.Entities.Book", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -121,10 +123,19 @@ namespace OBookStore.Repository.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<int>("NumberOfDislikes")
+                        .HasColumnType("int");
+
                     b.Property<int>("NumberOfEdition")
                         .HasColumnType("int");
 
+                    b.Property<int>("NumberOfLikes")
+                        .HasColumnType("int");
+
                     b.Property<int>("NumberOfPages")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberOfSolds")
                         .HasColumnType("int");
 
                     b.Property<int>("NumberOfStocks")
@@ -133,8 +144,8 @@ namespace OBookStore.Repository.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid>("PublisherId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("PublisherId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasMaxLength(100)
@@ -154,12 +165,13 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("OBookStore.Core.Entities.Cart", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -171,9 +183,10 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("OBookStore.Core.Entities.Category", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -188,20 +201,93 @@ namespace OBookStore.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 539, DateTimeKind.Local).AddTicks(4472),
+                            Title = "Literature",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 540, DateTimeKind.Local).AddTicks(7523),
+                            Title = "History",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 540, DateTimeKind.Local).AddTicks(7536),
+                            Title = "Philosophy",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 540, DateTimeKind.Local).AddTicks(7538),
+                            Title = "Science",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 540, DateTimeKind.Local).AddTicks(7539),
+                            Title = "Engineering",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 540, DateTimeKind.Local).AddTicks(7540),
+                            Title = "Software",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 540, DateTimeKind.Local).AddTicks(7541),
+                            Title = "Kids",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 540, DateTimeKind.Local).AddTicks(7542),
+                            Title = "Economy",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 540, DateTimeKind.Local).AddTicks(7543),
+                            Title = "Sociology",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CreatedDate = new DateTime(2023, 5, 10, 16, 22, 47, 540, DateTimeKind.Local).AddTicks(7544),
+                            Title = "Art",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("OBookStore.Core.Entities.Comment", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Body")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<Guid>("BookId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -223,8 +309,8 @@ namespace OBookStore.Repository.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -237,9 +323,10 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("OBookStore.Core.Entities.Order", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -247,8 +334,8 @@ namespace OBookStore.Repository.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -259,9 +346,10 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("OBookStore.Core.Entities.Publisher", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AddressDescription")
                         .HasMaxLength(100)
@@ -291,9 +379,10 @@ namespace OBookStore.Repository.Migrations
 
             modelBuilder.Entity("OBookStore.Core.Entities.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AddressDescription")
                         .HasColumnType("nvarchar(max)");

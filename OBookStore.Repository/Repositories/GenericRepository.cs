@@ -43,7 +43,7 @@ namespace OBookStore.Repository.Repositories
             return  _dbSet.AsNoTracking();
         }
 
-        public async Task<TEntity> GetByIdAsync(Guid id)
+        public async Task<TEntity> GetByIdAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }

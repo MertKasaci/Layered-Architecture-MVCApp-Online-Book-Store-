@@ -42,7 +42,7 @@ namespace OBookStore.Service.Services
             return _repository.GetAll();
         }
 
-        public async Task<TEntity> GetByIdAsync(Guid id)
+        public async Task<TEntity> GetByIdAsync(int id)
         {
             return await _repository.GetByIdAsync(id);
         }

@@ -21,8 +21,8 @@ namespace OBookStore.Core.Entities
         public int NumberOfLikes { get; set; }
         public int NumberOfDislikes { get; set; }
         public decimal Price { get; set; }
-        public Guid CategoryId { get; set; }
-        public Guid PublisherId { get; set; }
+        public int CategoryId { get; set; }
+        public int PublisherId { get; set; }
             
         public Category Category { get; set; } // Book is dependent to the category so should have foreign key for category.
         public Publisher Publisher { get; set; } // Book is dependent to the publisher so should have foreign key for publisher.

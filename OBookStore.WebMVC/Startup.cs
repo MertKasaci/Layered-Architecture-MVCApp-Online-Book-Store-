@@ -5,11 +5,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OBookStore.Core.DataGenerator;
 using OBookStore.Core.Repositories;
 using OBookStore.Core.Services;
 using OBookStore.Core.UnitOfWorks;
 using OBookStore.Repository.DbContexts;
 using OBookStore.Repository.Repositories;
+using OBookStore.Repository.Seeds.DataGenerator;
 using OBookStore.Repository.UnitOfWorks;
 using OBookStore.Service.Mapping;
 using OBookStore.Service.Services;
@@ -39,6 +41,7 @@ namespace OBookStore.WebMVC
             services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IDataGenerator, DataGenerator>();
 
             services.AddDbContext<BookStoreAppDbContext>(dbContext =>
             {

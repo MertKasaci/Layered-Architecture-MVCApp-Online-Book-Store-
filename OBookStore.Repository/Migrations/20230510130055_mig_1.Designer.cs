@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OBookStore.Repository.DbContexts;
 
 namespace OBookStore.Repository.Migrations
 {
     [DbContext(typeof(BookStoreAppDbContext))]
-    partial class BookStoreAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230510130055_mig_1")]
+    partial class mig_1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -199,78 +201,6 @@ namespace OBookStore.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 279, DateTimeKind.Local).AddTicks(4292),
-                            Title = "Literature",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 280, DateTimeKind.Local).AddTicks(2617),
-                            Title = "History",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 280, DateTimeKind.Local).AddTicks(2630),
-                            Title = "Philosophy",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 280, DateTimeKind.Local).AddTicks(2632),
-                            Title = "Science",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 280, DateTimeKind.Local).AddTicks(2633),
-                            Title = "Engineering",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 280, DateTimeKind.Local).AddTicks(2634),
-                            Title = "Software",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 280, DateTimeKind.Local).AddTicks(2635),
-                            Title = "Kids",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 280, DateTimeKind.Local).AddTicks(2636),
-                            Title = "Economy",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 280, DateTimeKind.Local).AddTicks(2637),
-                            Title = "Sociology",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CreatedDate = new DateTime(2023, 5, 10, 19, 0, 24, 280, DateTimeKind.Local).AddTicks(2686),
-                            Title = "Art",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("OBookStore.Core.Entities.Comment", b =>

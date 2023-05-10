@@ -9,7 +9,7 @@ namespace OBookStore.Core.Repositories
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-       Task<TEntity> GetByIdAsync(Guid id);
+       Task<TEntity> GetByIdAsync(int id);
        IQueryable<TEntity> GetAll();
        IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> expression);
        Task<bool> AnyAsync(Expression<Func<TEntity, bool>> expression);

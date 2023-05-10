@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OBookStore.Core.DTOs
+namespace OBookStore.Core.DataGenerator
 {
-    public  class OrderDto
+    public interface IDataGenerator
     {
-        public int UserId { get; set; }
-        public ICollection<Book> Books { get; set; }
+
+        List<Book> bookDataGenerator();
+        List<Publisher> publisherDataGenerator();
     }
 }

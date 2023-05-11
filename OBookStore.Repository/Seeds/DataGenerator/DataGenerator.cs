@@ -15,7 +15,7 @@ namespace OBookStore.Repository.Seeds.DataGenerator
         public List<Book> bookDataGenerator()
         {
             int id = 1;
-
+            decimal price = 150;
             var bookDataGenerator = new Faker<Book>()
                 .RuleFor(b => b.Id, d => id++)
                 .RuleFor(b => b.Title, d => d.Lorem.Word())
@@ -26,9 +26,10 @@ namespace OBookStore.Repository.Seeds.DataGenerator
                 .RuleFor(b => b.NumberOfPages, d => d.Random.Int(250, 1000))
                 .RuleFor(b => b.NumberOfSolds, d => d.Random.Int(1, 100))
                 .RuleFor(b => b.NumberOfStocks, d => d.Random.Int(10, 50))
-                .RuleFor(b => b.Price, d => d.Commerce.Price(1).First())
+                .RuleFor(b => b.Price, d => price+=10 )
                 .RuleFor(b => b.CategoryId, d => d.Random.Int(1, 10))
-                .RuleFor(b => b.PublisherId, d => d.Random.Int(1, 10));
+                .RuleFor(b => b.PublisherId, d => d.Random.Int(1, 10))
+                .RuleFor(b => b.CreatedDate, d => d.Date.Past());
 
             return bookDataGenerator.GenerateBetween(20, 20);
 
@@ -42,7 +43,8 @@ namespace OBookStore.Repository.Seeds.DataGenerator
                 .RuleFor(p => p.Name, d => d.Company.CompanyName())
                 .RuleFor(p => p.Description, d => d.Lorem.Text())
                 .RuleFor(p => p.AddressDescription, d => d.Address.FullAddress())
-                .RuleFor(p => p.Email, d => d.Internet.Email());
+                .RuleFor(p => p.Email, d => d.Internet.Email())
+                .RuleFor(p => p.CreatedDate, d => d.Date.Past());
 
             return publisherDataGenerator.GenerateBetween(20, 20);
         }

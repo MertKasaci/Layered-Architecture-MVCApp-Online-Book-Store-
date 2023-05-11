@@ -13,9 +13,9 @@ namespace OBookStore.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<Publisher> builder)
         {
-            //builder.Property(p=>p.Name).HasMaxLength(100);
-            //builder.Property(p=>p.Description).HasMaxLength(100);
-            //builder.Property(p=>p.AddressDescription).HasMaxLength(100);
+            builder.Property(p => p.Name).HasMaxLength(100);
+            builder.Property(p => p.Description).HasMaxLength(100);
+            builder.Property(p => p.AddressDescription).HasMaxLength(100);
         }
     }
 }

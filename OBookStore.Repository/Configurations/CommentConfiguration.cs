@@ -13,10 +13,10 @@ namespace OBookStore.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
-            //builder.Property(p=>p.Title).HasMaxLength(50);
-            //builder.Property(p=>p.Body).HasMaxLength(250);
-            //builder.Property(p=>p.NumberOfLikes).HasDefaultValue(0);
-            //builder.Property(p=>p.NumberOfDislikes).HasDefaultValue(0);
+            builder.Property(p => p.Title).HasMaxLength(50);
+            builder.Property(p => p.Body).HasMaxLength(250);
+            builder.Property(p => p.NumberOfLikes).HasDefaultValue(0);
+            builder.Property(p => p.NumberOfDislikes).HasDefaultValue(0);
         }
     }
 }

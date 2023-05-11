@@ -200,70 +200,70 @@ namespace OBookStore.Repository.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(142));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 696, DateTimeKind.Local).AddTicks(187));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8719));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 697, DateTimeKind.Local).AddTicks(7320));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8736));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 697, DateTimeKind.Local).AddTicks(7339));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 4,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8738));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 697, DateTimeKind.Local).AddTicks(7341));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 5,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8739));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 697, DateTimeKind.Local).AddTicks(7342));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 6,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8740));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 697, DateTimeKind.Local).AddTicks(7343));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 7,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8741));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 697, DateTimeKind.Local).AddTicks(7345));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 8,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8743));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 697, DateTimeKind.Local).AddTicks(7346));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 9,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8744));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 697, DateTimeKind.Local).AddTicks(7347));
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 10,
                 column: "CreatedDate",
-                value: new DateTime(2023, 5, 10, 20, 13, 47, 243, DateTimeKind.Local).AddTicks(8745));
+                value: new DateTime(2023, 5, 10, 23, 29, 30, 697, DateTimeKind.Local).AddTicks(7348));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

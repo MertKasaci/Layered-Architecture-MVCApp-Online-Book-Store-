@@ -13,11 +13,11 @@ namespace OBookStore.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            //builder.Property(p => p.FirstName).HasMaxLength(50);
-            //builder.Property(p => p.LastName).HasMaxLength(50);
-            //builder.Property(p => p.PhoneNumber).HasMaxLength(10);
-            //builder.Property(p => p.UserName).HasMaxLength(50);
-            //builder.Property(p => p.Password).HasMaxLength(20);
+            builder.Property(p => p.FirstName).HasMaxLength(50);
+            builder.Property(p => p.LastName).HasMaxLength(50);
+            builder.Property(p => p.PhoneNumber).HasMaxLength(10);
+            builder.Property(p => p.UserName).HasMaxLength(50);
+            builder.Property(p => p.Password).HasMaxLength(20);
         }
     }
 }

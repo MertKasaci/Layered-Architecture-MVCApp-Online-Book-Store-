@@ -10,7 +10,7 @@ using OBookStore.Repository.DbContexts;
 namespace OBookStore.Repository.Migrations
 {
     [DbContext(typeof(BookStoreAppDbContext))]
-    [Migration("20230510171658_mig_6")]
+    [Migration("20230511095314_mig_6")]
     partial class mig_6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,19 +80,23 @@ namespace OBookStore.Repository.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -116,7 +120,8 @@ namespace OBookStore.Repository.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<int>("NumberOfDislikes")
                         .HasColumnType("int");
@@ -143,7 +148,8 @@ namespace OBookStore.Repository.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -155,6 +161,144 @@ namespace OBookStore.Repository.Migrations
                     b.HasIndex("PublisherId");
 
                     b.ToTable("Books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 5,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Swann's Way, the first part of A la recherche de temps perdu, Marcel Proust's seven-part cycle, was published in 1913",
+                            NumberOfDislikes = 100,
+                            NumberOfEdition = 10,
+                            NumberOfLikes = 50,
+                            NumberOfPages = 425,
+                            NumberOfSolds = 25,
+                            NumberOfStocks = 10,
+                            Price = 60m,
+                            PublisherId = 2,
+                            Title = "In Search Of Lost Time",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 2,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Ulysses chronicles the passage of Leopold Bloom through Dublin during an ordinary day, June 16, 1904",
+                            NumberOfDislikes = 10,
+                            NumberOfEdition = 25,
+                            NumberOfLikes = 150,
+                            NumberOfPages = 725,
+                            NumberOfSolds = 55,
+                            NumberOfStocks = 20,
+                            Price = 100m,
+                            PublisherId = 7,
+                            Title = "Ulysses",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 5,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Alonso Quixano, a retired country gentleman in his fifties",
+                            NumberOfDislikes = 100,
+                            NumberOfEdition = 10,
+                            NumberOfLikes = 75,
+                            NumberOfPages = 425,
+                            NumberOfSolds = 40,
+                            NumberOfStocks = 10,
+                            Price = 60m,
+                            PublisherId = 5,
+                            Title = "Don Quiote",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 5,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "First published in 1851, Melville's masterpiece is, in Elizabeth Hardwick's words",
+                            NumberOfDislikes = 100,
+                            NumberOfEdition = 10,
+                            NumberOfLikes = 20,
+                            NumberOfPages = 425,
+                            NumberOfSolds = 30,
+                            NumberOfStocks = 10,
+                            Price = 60m,
+                            PublisherId = 1,
+                            Title = "Moby Dick",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 5,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "War and Peace delineates in graphic detail events leading up to Napoleon's invasion of Russia",
+                            NumberOfDislikes = 100,
+                            NumberOfEdition = 10,
+                            NumberOfLikes = 90,
+                            NumberOfPages = 425,
+                            NumberOfSolds = 60,
+                            NumberOfStocks = 0,
+                            Price = 60m,
+                            PublisherId = 10,
+                            Title = "War And Peace",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 5,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "The Tragedy of Hamlet, Prince of Denmark, or more simply Hamlet",
+                            NumberOfDislikes = 100,
+                            NumberOfEdition = 10,
+                            NumberOfLikes = 80,
+                            NumberOfPages = 425,
+                            NumberOfSolds = 50,
+                            NumberOfStocks = 10,
+                            Price = 60m,
+                            PublisherId = 11,
+                            Title = "Hamlet",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryId = 5,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "The Odyssey is one of two major ancient Greek epic poems attributed to Homer",
+                            NumberOfDislikes = 100,
+                            NumberOfEdition = 10,
+                            NumberOfLikes = 150,
+                            NumberOfPages = 425,
+                            NumberOfSolds = 100,
+                            NumberOfStocks = 10,
+                            Price = 60m,
+                            PublisherId = 6,
+                            Title = "The Odyssey",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 5,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Dostoevsky's last and greatest novel, The Karamazov Brothers",
+                            NumberOfDislikes = 100,
+                            NumberOfEdition = 10,
+                            NumberOfLikes = 30,
+                            NumberOfPages = 425,
+                            NumberOfSolds = 10,
+                            NumberOfStocks = 10,
+                            Price = 60m,
+                            PublisherId = 5,
+                            Title = "The Brothers Karamazow",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("OBookStore.Core.Entities.Cart", b =>
@@ -186,7 +330,8 @@ namespace OBookStore.Repository.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -199,70 +344,70 @@ namespace OBookStore.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 550, DateTimeKind.Local).AddTicks(4066),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(284),
                             Title = "Literature",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2749),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(9461),
                             Title = "History",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2764),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(9474),
                             Title = "Philosophy",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2766),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(9477),
                             Title = "Science",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2767),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(9478),
                             Title = "Engineering",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2769),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(9479),
                             Title = "Software",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2770),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(9480),
                             Title = "Kids",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2771),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(9481),
                             Title = "Economy",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2772),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(9483),
                             Title = "Sociology",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2023, 5, 10, 20, 16, 58, 551, DateTimeKind.Local).AddTicks(2773),
+                            CreatedDate = new DateTime(2023, 5, 11, 12, 53, 14, 91, DateTimeKind.Local).AddTicks(9484),
                             Title = "Art",
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -276,7 +421,8 @@ namespace OBookStore.Repository.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<int>("BookId")
                         .HasColumnType("int");
@@ -285,13 +431,18 @@ namespace OBookStore.Repository.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("NumberOfDislikes")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<int>("NumberOfLikes")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -339,19 +490,22 @@ namespace OBookStore.Repository.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AddressDescription")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -359,6 +513,128 @@ namespace OBookStore.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Publishers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AddressDescription = "Istanbul/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Tubitak publishes books about scientific things",
+                            Email = "tubitak@hotmail.com.tr",
+                            Name = "Tubitak Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AddressDescription = "Ankara/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Yapı Kredi publishes books about different topics",
+                            Email = "tubitak@hotmail.com.tr",
+                            Name = "Yapi Kredi Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AddressDescription = "Izmir/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Karbon publishes books about different topics",
+                            Email = "karbon@hotmail.com.tr",
+                            Name = "Karbon Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AddressDescription = "Bursa/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Kronik publishes books about different topics",
+                            Email = "kronik@hotmail.com.tr",
+                            Name = "Kronik Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AddressDescription = "Ankara/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Ithaki publishes books about different topics",
+                            Email = "ithaki@hotmail.com.tr",
+                            Name = "Ithaki Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AddressDescription = "Ankara/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Everest publishes books about different topics",
+                            Email = "everest@hotmail.com.tr",
+                            Name = "Everest Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AddressDescription = "Izmir/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Remzi publishes books about different topics",
+                            Email = "remzi@hotmail.com.tr",
+                            Name = "Remzi Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AddressDescription = "Istanbul/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Epsilon publishes books about different topics",
+                            Email = "epsilon@hotmail.com.tr",
+                            Name = "Epsilon Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AddressDescription = "Istanbul/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Can publishes books about different topics",
+                            Email = "can@hotmail.com.tr",
+                            Name = "Can Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AddressDescription = "Istanbul/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Altin publishes books about different topics",
+                            Email = "altin@hotmail.com.tr",
+                            Name = "Altin Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AddressDescription = "Izmir/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Alfa publishes books about different topics",
+                            Email = "alfa@hotmail.com.tr",
+                            Name = "Alfa Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AddressDescription = "Ankara/Turkey",
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Panama publishes books about different topics",
+                            Email = "panama@hotmail.com.tr",
+                            Name = "Panama Publishing",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("OBookStore.Core.Entities.User", b =>
@@ -378,22 +654,27 @@ namespace OBookStore.Repository.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 

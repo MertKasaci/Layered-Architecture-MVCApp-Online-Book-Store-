@@ -10,8 +10,8 @@ namespace OBookStore.Core.DTOs
     {
         public string Title { get; set; }
         public string Body { get; set; }
-        public Guid UserId { get; set; }
-        public Guid BookId { get; set; }
+        public int UserId { get; set; }
+        public int BookId { get; set; }
 
     }
 }

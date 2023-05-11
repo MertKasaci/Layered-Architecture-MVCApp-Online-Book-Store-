@@ -17,8 +17,8 @@ namespace OBookStore.Core.DTOs
         public int NumberOfLikes { get; set; }
         public int NumberOfDislikes { get; set; }
         public decimal Price { get; set; }
-        public Guid CategoryId { get; set; }
-        public Guid PublisherId { get; set; }
+        public int CategoryId { get; set; }
+        public int PublisherId { get; set; }
         public ICollection<Author> Authors { get; set; }
         public ICollection<Comment> Comments { get; set; }
 

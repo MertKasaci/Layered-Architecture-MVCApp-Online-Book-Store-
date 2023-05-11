@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +17,7 @@ using OBookStore.Repository.Seeds.DataGenerator;
 using OBookStore.Repository.UnitOfWorks;
 using OBookStore.Service.Mapping;
 using OBookStore.Service.Services;
+using OBookStore.Service.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,12 +39,14 @@ namespace OBookStore.WebMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddValidatorsFromAssemblyContaining<AuthotDtoValidator>();
             services.AddAutoMapper(typeof(MapProfile));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IDataGenerator, DataGenerator>();
+
             
 
             services.AddDbContext<BookStoreAppDbContext>(dbContext =>
